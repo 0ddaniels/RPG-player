@@ -45,7 +45,7 @@ let physical = {
     return baseDamage + bonus;
   },
   charge: function(){
-    let pain = Math.random;
+    let pain = Math.random();
     let bonus = this.stats.atk*0.5*Math.random();
     if (pain < 0.5){
       this.stats.hp - bonus/2;
@@ -56,9 +56,29 @@ let physical = {
     }
   },
   roundhouseKick: function(){
-    
+    let baseDamage = this.stats.atk*0.50;
+    let chance = Math.random();
+    if (chance < 0.33){
+      return baseDamage;
+    }
+    else if(chance < 0.66){
+      return baseDamage*2;
+    }
+    else{
+      return baseDamage*3;
+    }
+  },
+  furyStrike: function(){
+    let bonus = this.stats.atk*Math.random();
+    let pain = Math.random();
+    if (pain < 0.5){
+      this.stats.hp - 
+      return this.stats.atk+bonus;
+    }
+    else{
+      return this.stats.atk+bonus;
+    }
   }
-
 }
 let magic = {
   hydroPump: function(){
@@ -79,7 +99,17 @@ let magic = {
         return 4*pump;
       }
     }
-  }
+  },
+  lightningSlap: function(){
+    if (this.stats.mp >= 10){
+      this.stats.mp = this.stats.mp - 10;
+      let slap = Math.ceil(this.stats.sp*(2/3));
+      let bonus = this.stats.sp*Math.random()
+
+    }
+
+
+
 }
 
 
